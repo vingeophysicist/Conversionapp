@@ -1,0 +1,43 @@
+<html lang="en">
+  <head>
+    <title>Length Conversion</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+  {% load crispy_forms_tags %}
+
+<div class = "container pt-5">
+   <form action={% url "shapeformular:convert" %} method="get">
+    {% csrf_token %}
+      <div class="card text-center border border-dark rounded">
+        <div class="card-body ">
+          <h5 class="card-title">Length converter</h5>
+          <p class="card-text">This is a length converter app. This app converts the length dimension to various unit</p>
+
+          <div class="form-row justify-content-center">
+             <div class="col-md-2">
+              {{ form.input_unit|as_crispy_field }}
+             </div>
+             <div class="col-md-2">
+              {{ form.input_value|as_crispy_field }}
+             </div>
+          </div>
+          <div class="form-row justify-content-center">
+             <div class="col-md-2">
+             {{ form.output_unit |as_crispy_field }}
+             </div>
+             <div class="col-md-2">
+             {{ form.output_value|as_crispy_field }}
+             </div>
+          </div>
+         <button type = "submit" class = " btn btn-primary ">convert</button>
+        </div>
+      </div>
+   </form>
+</div>
+
+</body>
+
+</html>
